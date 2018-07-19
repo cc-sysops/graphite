@@ -27,6 +27,7 @@ command << " --pythonpath #{node['graphite']['base_dir']}/lib \
 --no-orphans --master \
 --buffer-size #{node['graphite']['uwsgi']['buffer-size']} \
 --procname graphite-web \
+--static-map /static=#{node['graphite']['base_dir']}/webapp/content \
 --die-on-term \
 --socket #{node['graphite']['uwsgi']['socket']}"
 
