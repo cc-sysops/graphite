@@ -20,7 +20,7 @@
 python_runtime 'carbons_python' do
   provider :system
   version '2.7'
-  options pip_version: true
+  get_pip_url 'https://bootstrap.pypa.io/3.3/get-pip.py'
 end
 
 include_recipe 'graphite::_user'
@@ -33,6 +33,7 @@ end
 python_virtualenv node['graphite']['base_dir'] do
   user node['graphite']['user']
   group node['graphite']['group']
+  get_pip_url 'https://bootstrap.pypa.io/3.3/get-pip.py'
 end
 
 include_recipe 'graphite::_user'
